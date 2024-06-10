@@ -1,7 +1,8 @@
 :root {
   --main-bg-color: orange;
+  --white: white;
+  --white-transparent: rgba(255, 255, 255, 0.207);
 }
-
 
 *,
 *::after,
@@ -23,7 +24,7 @@ body {
 }
 
 .main-carousel {
-  background: #eee;
+  background: var(--white);
 }
 
 .carousel-cell {
@@ -69,19 +70,19 @@ body {
   height: 20px;
   opacity: 0.7;
   background: transparent;
-  border: 2px solid white;
+  border: 2px solid var(--white);
 }
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
-  background: white;
+  background: var(--white);
 }
 
 .flickity-button {
   background: transparent;
-  transition: .2s;
+  transition: 0.2s;
 }
 .flickity-button:hover {
-  background: rgba(255, 255, 255, 0.224);
+  background: var(--white-transparent);
 }
 .flickity-prev-next-button {
   width: 5em;
