@@ -50,6 +50,15 @@ body {
   background-image: url("../imgs/Banner4.jpg");
 }
 
+footer {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 5em;
+}
+
 /* cell number */
 /* .carousel-cell:before {
   display: block;
