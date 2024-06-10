@@ -1,28 +1,92 @@
-/* external css: flickity.css */
+:root {
+  --main-bg-color: orange;
+}
 
-* { box-sizing: border-box; }
 
-body { font-family: sans-serif; }
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "Roboto", sans-serif;
+}
 
-.carousel {
-  background: #EEE;
+body {
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: min-content;
+  text-align: center;
+}
+
+.main-carousel {
+  background: #eee;
 }
 
 .carousel-cell {
-  width: 66%;
-  height: 200px;
-  margin-right: 10px;
-  background: #8C8;
+  width: 100vw;
+  height: 99vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   border-radius: 5px;
-  counter-increment: carousel-cell;
+  counter-increment: gallery-cell;
+}
+
+#main-banner1 {
+  background-image: url("../imgs/Banner1.jpg");
+}
+#main-banner2 {
+  background-image: url("../imgs/Banner2.jpg");
+}
+#main-banner3 {
+  background-image: url("../imgs/Banner3.jpg");
+}
+#main-banner4 {
+  background-image: url("../imgs/Banner4.jpg");
 }
 
 /* cell number */
-.carousel-cell:before {
+/* .carousel-cell:before {
   display: block;
   text-align: center;
   content: counter(carousel-cell);
   line-height: 200px;
   font-size: 80px;
   color: white;
+} */
+
+/* position dots in gallery */
+.flickity-page-dots {
+  bottom: 5px;
+}
+/* white circles */
+.flickity-page-dots .dot {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  background: transparent;
+  border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: white;
+}
+
+.flickity-button {
+  background: transparent;
+  transition: .2s;
+}
+.flickity-button:hover {
+  background: rgba(255, 255, 255, 0.224);
+}
+.flickity-prev-next-button {
+  width: 5em;
+  height: 5em;
+}
+.flickity-button-icon {
+  fill: var(--main-bg-color);
 }
