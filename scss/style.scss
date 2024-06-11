@@ -1,6 +1,6 @@
 $color-primary: #f941ff;
 $color-white: #ffffff;
-$color-white-transparent: #ffffff33;
+$color-pink-transparent: #f941ff57;
 $color-black: #000000;
 $color-paragraph: #fff8ff;
 
@@ -29,15 +29,15 @@ h3 {
 
 p {
   font-size: 1rem;
-  color: $color-paragraph;
 }
 
 h1,
 h2,
 h3,
 .decorative-text {
-  font-family: "Parisienne", cursive;
+  font-family: "Great Vibes", cursive;
   color: $color-primary;
+  text-align: center;
 }
 
 .container {
@@ -65,11 +65,13 @@ h3,
   &__title {
     font-size: 5rem;
     font-weight: bold;
+    text-align: left;
   }
 
   &__subtitle {
     font-size: 2rem;
     margin-top: 1rem;
+    color: $color-white;
   }
 
   &__btn {
@@ -96,15 +98,15 @@ h3,
     content: "";
     background: linear-gradient(
       45deg,
-      #ffdd00,
-      #ffc300,
-      #ffaa00,
-      #ff9500,
-      #ff7b00,
-      #ff8800,
-      #ffa200,
-      #ffb700,
-      #ffd000
+      #fadde1,
+      #ffc4d6,
+      #ffa6c1,
+      #ff87ab,
+      #ff5d8f,
+      #ff97b7,
+      #ffacc5,
+      #ffcad4,
+      #fadde1
     );
     position: absolute;
     top: -2px;
@@ -155,11 +157,11 @@ h3,
   height: 20px;
   opacity: 0.7;
   background: transparent;
-  border: 2px solid $color-white;
+  border: 2px solid $color-primary;
 }
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
-  background: $color-white;
+  background: $color-primary;
 }
 
 .flickity-button {
@@ -167,14 +169,14 @@ h3,
   transition: 0.2s;
 }
 .flickity-button:hover {
-  background: $color-white-transparent;
+  background: $color-pink-transparent;
 }
 .flickity-prev-next-button {
   width: 5em;
   height: 5em;
 }
 .flickity-button-icon {
-  fill: $color-white-transparent;
+  fill: $color-pink-transparent;
 }
 
 #main-banner1 {
@@ -253,6 +255,37 @@ h3,
   mask: url(../imgs/delivery3.svg) no-repeat center/contain;
 }
 
+.testimonials {
+  padding: 5rem 0;
+
+  &__cell {
+    height: 50vh;
+    width: 25vw;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  &__rating {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__grade {
+    color: $color-primary;
+    font-size: 1.2rem;
+  }
+
+  &__text {
+    line-height: 1.5rem;
+  }
+}
+
 footer {
   display: grid;
   justify-content: center;
@@ -284,6 +317,12 @@ footer {
   *::before {
     font-size: 18px;
   }
+
+  .testimonials {
+    &__cell {
+      width: 50vw;
+    }
+  }
 }
 
 @media only screen and (max-width: 599px) {
@@ -292,12 +331,11 @@ footer {
   *::before {
     font-size: 16px;
   }
-  .shipping{
+  .shipping {
     grid-template-columns: 1fr;
 
-    &__title{
+    &__title {
       grid-column: 1;
     }
   }
-
 }

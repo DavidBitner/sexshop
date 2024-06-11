@@ -23,15 +23,15 @@ h3 {
 
 p {
   font-size: 1rem;
-  color: #fff8ff;
 }
 
 h1,
 h2,
 h3,
 .decorative-text {
-  font-family: "Parisienne", cursive;
+  font-family: "Great Vibes", cursive;
   color: #f941ff;
+  text-align: center;
 }
 
 .container {
@@ -58,10 +58,12 @@ h3,
 .main-carousel__title {
   font-size: 5rem;
   font-weight: bold;
+  text-align: left;
 }
 .main-carousel__subtitle {
   font-size: 2rem;
   margin-top: 1rem;
+  color: #ffffff;
 }
 .main-carousel__btn {
   font-size: 1rem;
@@ -84,7 +86,7 @@ h3,
 }
 .main-carousel__btn:before {
   content: "";
-  background: linear-gradient(45deg, #ffdd00, #ffc300, #ffaa00, #ff9500, #ff7b00, #ff8800, #ffa200, #ffb700, #ffd000);
+  background: linear-gradient(45deg, #fadde1, #ffc4d6, #ffa6c1, #ff87ab, #ff5d8f, #ff97b7, #ffacc5, #ffcad4, #fadde1);
   position: absolute;
   top: -2px;
   left: -2px;
@@ -130,12 +132,12 @@ h3,
   height: 20px;
   opacity: 0.7;
   background: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid #f941ff;
 }
 
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
-  background: #ffffff;
+  background: #f941ff;
 }
 
 .flickity-button {
@@ -144,7 +146,7 @@ h3,
 }
 
 .flickity-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(249, 65, 255, 0.3411764706);
 }
 
 .flickity-prev-next-button {
@@ -153,7 +155,7 @@ h3,
 }
 
 .flickity-button-icon {
-  fill: rgba(255, 255, 255, 0.2);
+  fill: rgba(249, 65, 255, 0.3411764706);
 }
 
 #main-banner1 {
@@ -232,6 +234,33 @@ h3,
   mask: url(../imgs/delivery3.svg) no-repeat center/contain;
 }
 
+.testimonials {
+  padding: 5rem 0;
+}
+.testimonials__cell {
+  height: 50vh;
+  width: 25vw;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+.testimonials__rating {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 1rem;
+  align-items: center;
+}
+.testimonials__grade {
+  color: #f941ff;
+  font-size: 1.2rem;
+}
+.testimonials__text {
+  line-height: 1.5rem;
+}
+
 footer {
   display: grid;
   justify-content: center;
@@ -260,6 +289,9 @@ footer span {
   *::after,
   *::before {
     font-size: 18px;
+  }
+  .testimonials__cell {
+    width: 50vw;
   }
 }
 @media only screen and (max-width: 599px) {
