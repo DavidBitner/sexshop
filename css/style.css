@@ -18,7 +18,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 p {
@@ -40,8 +40,66 @@ h3,
   text-align: center;
 }
 
+.btn {
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  justify-self: baseline;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  color: #f941ff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.btn:before {
+  content: "";
+  background: linear-gradient(45deg, #fadde1, #ffc4d6, #ffa6c1, #ff87ab, #ff5d8f, #ff97b7, #ffacc5, #ffcad4, #fadde1);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.btn:active {
+  color: #000;
+}
+.btn:active:after {
+  background-color: transparent;
+}
+.btn:hover:before {
+  opacity: 1;
+}
+.btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
 .main-carousel {
   background: #ffffff;
+}
+.main-carousel__btn {
+  margin-top: 2rem;
 }
 .main-carousel__cell {
   width: 100vw;
@@ -64,61 +122,6 @@ h3,
   font-size: 2rem;
   margin-top: 1rem;
   color: #ffffff;
-}
-.main-carousel__btn {
-  font-size: 1rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  justify-self: baseline;
-  padding: 1rem 2.5rem;
-  border: none;
-  outline: none;
-  color: #f941ff;
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  margin-top: 2rem;
-}
-.main-carousel__btn:before {
-  content: "";
-  background: linear-gradient(45deg, #fadde1, #ffc4d6, #ffa6c1, #ff87ab, #ff5d8f, #ff97b7, #ffacc5, #ffcad4, #fadde1);
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-.main-carousel__btn:active {
-  color: #000;
-}
-.main-carousel__btn:active:after {
-  background-color: transparent;
-}
-.main-carousel__btn:hover:before {
-  opacity: 1;
-}
-.main-carousel__btn:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
 }
 
 /* position dots in gallery */
@@ -172,6 +175,89 @@ h3,
 
 #main-banner4 {
   background-image: url("../imgs/Banner4.jpg");
+}
+
+#category1 {
+  background: url("../imgs/category1.jpg");
+  grid-row: 1/3;
+}
+
+#category2 {
+  background: url("../imgs/category2.jpg");
+  grid-row: 1/3;
+}
+
+#category3 {
+  background: url("../imgs/category3.jpg");
+  grid-row: 1/2;
+}
+
+#category4 {
+  background: url("../imgs/category4.jpg");
+  grid-row: 2/3;
+}
+
+#category1,
+#category2,
+#category3,
+#category4 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.2fr;
+  grid-template-rows: 30vh 30vh;
+  padding: 5rem;
+  gap: 1.5rem;
+}
+
+.category {
+  display: grid;
+  align-content: end;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.4s;
+  box-shadow: rgba(0, 0, 0, 0.6823529412) 0 0.5rem 0.8rem;
+}
+.category:hover {
+  transform: scale(1.03);
+  box-shadow: #f941ff 0 0.5rem 0.8rem;
+}
+.category__section {
+  display: grid;
+  padding: 1rem;
+}
+.category__title {
+  font-size: 2rem;
+  display: grid;
+  justify-content: left;
+}
+.category__cta {
+  background-color: #f941ff;
+  color: #ffffff;
+  justify-self: left;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.banner {
+  display: grid;
+  justify-content: left;
+  align-content: end;
+  height: 75vh;
+  padding: 5rem;
+  background-image: url("../imgs/banner1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  gap: 1rem;
+}
+.banner__details {
+  color: #fff8ff;
 }
 
 .shipping {

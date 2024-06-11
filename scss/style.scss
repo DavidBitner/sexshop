@@ -3,6 +3,7 @@ $color-white: #ffffff;
 $color-pink-transparent: #f941ff57;
 $color-black: #000000;
 $color-paragraph: #fff8ff;
+$color-shadow: #000000ae;
 
 *,
 *::after,
@@ -24,7 +25,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 p {
@@ -46,55 +47,25 @@ h3,
   text-align: center;
 }
 
-.main-carousel {
-  background: $color-white;
+.btn {
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  justify-self: baseline;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  color: $color-primary;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 
-  &__cell {
-    width: 100vw;
-    height: 99vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-radius: 5px;
-    display: grid;
-    padding: 5rem 8rem;
-    justify-content: baseline;
-    align-content: end;
-  }
-
-  &__title {
-    font-size: 5rem;
-    font-weight: bold;
-    text-align: left;
-  }
-
-  &__subtitle {
-    font-size: 2rem;
-    margin-top: 1rem;
-    color: $color-white;
-  }
-
-  &__btn {
-    font-size: 1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    justify-self: baseline;
-    padding: 1rem 2.5rem;
-    border: none;
-    outline: none;
-    color: $color-primary;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    margin-top: 2rem;
-  }
-
-  &__btn:before {
+  &:before {
     content: "";
     background: linear-gradient(
       45deg,
@@ -122,19 +93,19 @@ h3,
     border-radius: 10px;
   }
 
-  &__btn:active {
+  &:active {
     color: #000;
   }
 
-  &__btn:active:after {
+  &:active:after {
     background-color: transparent;
   }
 
-  &__btn:hover:before {
+  &:hover:before {
     opacity: 1;
   }
 
-  &__btn:after {
+  &:after {
     z-index: -1;
     content: "";
     position: absolute;
@@ -144,6 +115,39 @@ h3,
     left: 0;
     top: 0;
     border-radius: 10px;
+  }
+}
+
+.main-carousel {
+  background: $color-white;
+
+  &__btn {
+    margin-top: 2rem;
+  }
+
+  &__cell {
+    width: 100vw;
+    height: 99vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+    display: grid;
+    padding: 5rem 8rem;
+    justify-content: baseline;
+    align-content: end;
+  }
+
+  &__title {
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: $color-white;
   }
 }
 
@@ -190,6 +194,91 @@ h3,
 }
 #main-banner4 {
   background-image: url("../imgs/Banner4.jpg");
+}
+
+#category1 {
+  background: url("../imgs/category1.jpg");
+  grid-row: 1 / 3;
+}
+#category2 {
+  background: url("../imgs/category2.jpg");
+  grid-row: 1 / 3;
+}
+#category3 {
+  background: url("../imgs/category3.jpg");
+  grid-row: 1/2;
+}
+#category4 {
+  background: url("../imgs/category4.jpg");
+  grid-row: 2/3;
+}
+
+#category1,
+#category2,
+#category3,
+#category4 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.2fr;
+  grid-template-rows: 30vh 30vh;
+  padding: 5rem;
+  gap: 1.5rem;
+}
+
+.category {
+  display: grid;
+  align-content: end;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.4s;
+  box-shadow: $color-shadow 0 0.5rem 0.8rem;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: $color-primary 0 0.5rem 0.8rem;
+  }
+
+  &__section {
+    display: grid;
+    padding: 1rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    display: grid;
+    justify-content: left;
+  }
+
+  &__cta {
+    background-color: $color-primary;
+    color: $color-white;
+    justify-self: left;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem 2rem;
+  }
+}
+
+.banner {
+  display: grid;
+  justify-content: left;
+  align-content: end;
+  height: 75vh;
+  padding: 5rem;
+  background-image: url("../imgs/banner1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  gap: 1rem;
+
+  &__details {
+    color: $color-paragraph;
+  }
 }
 
 .shipping {
