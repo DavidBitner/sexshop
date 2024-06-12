@@ -3,7 +3,6 @@ var carouselMain = document.querySelector(".main-carousel");
 var carouselTestimonials = document.querySelector(`.testimonials__carousel`);
 
 var flkty1 = new Flickity(carouselMain, {
-  // options
   wrapAround: true,
   autoPlay: 10000,
   selectedAttraction: 0.01,
@@ -38,3 +37,10 @@ window.onbeforeunload = function (e) {
   s.src = "https://w.behold.so/widget.js";
   d.head.append(s);
 })();
+
+//Close menu
+window.addEventListener("click", function (e) {
+  if (!document.getElementById("menu").contains(e.target)) {
+    document.querySelector(`#menu__checkbox`).checked = false;
+  }
+});
