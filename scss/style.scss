@@ -1,4 +1,4 @@
-$color-primary: #f941ff;
+$color-primary: #c405a4;
 $color-white: #ffffff;
 $color-pink-transparent: #f941ff57;
 $color-black: #000000;
@@ -18,10 +18,12 @@ body {
   background-color: $color-paragraph;
   box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 h2 {
   font-size: 3.5rem;
+  padding: 2rem;
 }
 
 h3 {
@@ -375,13 +377,21 @@ h3,
   }
 }
 
+.instagram {
+  display: grid;
+  gap: 3rem;
+  padding: 5rem;
+  background-color: $color-black;
+  border-bottom: 1rem solid $color-white;
+}
+
 footer {
   display: grid;
   justify-content: center;
   text-align: center;
   background-color: $color-black;
   color: $color-white;
-  padding: 5em;
+  padding: 5rem;
 
   & span {
     color: $color-primary;
@@ -404,7 +414,7 @@ footer {
   *,
   *::after,
   *::before {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .testimonials {
@@ -412,19 +422,45 @@ footer {
       width: 50vw;
     }
   }
+
+  #category1 {
+    grid-row: 1 / 2;
+  }
+  #category2 {
+    grid-row: 3 / 4;
+  }
+  #category3 {
+    grid-row: 2 / 3;
+  }
+  #category4 {
+    grid-row: 4 / 5;
+  }
+
+  .categories {
+    display: grid;
+    grid-template-rows: 4fr 3fr 2fr 4fr;
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 1rem;
+  }
 }
 
 @media only screen and (max-width: 599px) {
   *,
   *::after,
   *::before {
-    font-size: 16px;
+    font-size: 15px;
   }
+
   .shipping {
     grid-template-columns: 1fr;
 
     &__title {
       grid-column: 1;
     }
+  }
+
+  .main-carousel__cell{
+    padding: 5rem 4rem;
   }
 }

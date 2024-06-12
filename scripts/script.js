@@ -1,6 +1,6 @@
 //Carousels
 var carouselMain = document.querySelector(".main-carousel");
-var carouselTestimonials = document.querySelector(`.testimonials__carousel`)
+var carouselTestimonials = document.querySelector(`.testimonials__carousel`);
 
 var flkty1 = new Flickity(carouselMain, {
   // options
@@ -30,3 +30,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 window.onbeforeunload = function (e) {
   localStorage.setItem("scrollpos", window.scrollY);
 };
+
+(() => {
+  const d = document,
+    s = d.createElement("script");
+  s.type = "module";
+  s.src = "https://w.behold.so/widget.js";
+  d.head.append(s);
+})();
