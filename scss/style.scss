@@ -1,10 +1,13 @@
 $color-primary: #c405a4;
+$color-primary-light: #ff94ed;
 $color-primary-dark: #20001a;
-$color-white: #ffffff;
 $color-pink-transparent: #f941ff57;
-$color-black: #000000;
+$color-white: #ffffff;
+$color-black: #111;
 $color-paragraph: #fff8ff;
 $color-shadow: #000000ae;
+$border-radius: 4px;
+$border-radius-big: 200px;
 
 *,
 *::after,
@@ -21,9 +24,12 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+h1 {
+  font-size: 4rem;
+}
+
 h2 {
   font-size: 3.5rem;
-  padding: 2rem;
 }
 
 h3 {
@@ -40,6 +46,9 @@ h3,
 .decorative-text {
   font-family: "Great Vibes", cursive;
   color: $color-primary;
+}
+
+.center {
   text-align: center;
 }
 
@@ -59,7 +68,7 @@ nav {
   top: 50px;
   left: 50px;
 
-  z-index: 1;
+  z-index: 5;
 
   -webkit-user-select: none;
   user-select: none;
@@ -71,7 +80,7 @@ nav {
     transition: color 0.3s ease;
 
     &:hover {
-      color: $color-primary-dark;
+      color: $color-primary-light;
     }
   }
 
@@ -99,7 +108,7 @@ nav {
     position: relative;
 
     background: $color-primary;
-    border-radius: 3px;
+    border-radius: $border-radius;
 
     z-index: 1;
 
@@ -161,12 +170,6 @@ nav {
 }
 
 //Site
-.container {
-  display: grid;
-  grid-template-rows: min-content;
-  text-align: center;
-}
-
 .btn {
   font-size: 1rem;
   text-decoration: none;
@@ -176,11 +179,11 @@ nav {
   border: none;
   outline: none;
   color: $color-primary;
-  background: #111;
+  background: $color-black;
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: 10px;
+  border-radius: $border-radius;
   display: grid;
   align-items: center;
   justify-items: center;
@@ -210,11 +213,11 @@ nav {
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
+    border-radius: $border-radius;
   }
 
   &:active {
-    color: #000;
+    color: $color-black;
   }
 
   &:active:after {
@@ -231,11 +234,25 @@ nav {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #111;
+    background: $color-black;
     left: 0;
     top: 0;
-    border-radius: 10px;
+    border-radius: $border-radius;
   }
+}
+
+.btn-secondary {
+  background-color: $color-white;
+  text-decoration: none;
+  color: $color-black;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  border-radius: $border-radius;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 0.7rem;
+  cursor: pointer;
 }
 
 .main-carousel {
@@ -258,6 +275,7 @@ nav {
   }
 
   &__title {
+    padding: 0;
     font-size: 5rem;
     font-weight: bold;
     text-align: left;
@@ -272,12 +290,12 @@ nav {
 
 /* position dots in gallery */
 .flickity-page-dots {
-  bottom: 5px;
+  bottom: 0.5rem;
 }
 /* white circles */
 .flickity-page-dots .dot {
-  width: 20px;
-  height: 20px;
+  width: 1rem;
+  height: 1rem;
   opacity: 0.7;
   background: transparent;
   border: 2px solid $color-primary;
@@ -295,8 +313,8 @@ nav {
   background: $color-pink-transparent;
 }
 .flickity-prev-next-button {
-  width: 5em;
-  height: 5em;
+  width: 5rem;
+  height: 5rem;
 }
 .flickity-button-icon {
   fill: $color-pink-transparent;
@@ -353,7 +371,7 @@ nav {
   display: grid;
   align-content: end;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: $border-radius;
   transition: all 0.4s;
   box-shadow: $color-shadow 0 0.5rem 0.8rem;
 
@@ -406,8 +424,8 @@ nav {
   display: grid;
   justify-items: stretch;
   padding-top: 6rem;
-  padding-bottom: 2rem;
   text-align: center;
+  padding-bottom: 2rem;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 5rem;
   gap: 2rem;
@@ -421,14 +439,14 @@ nav {
     display: grid;
     justify-items: center;
     align-items: center;
-    border-radius: 4px;
+    border-radius: $border-radius;
   }
 
   &__icon-container {
     background-color: $color-white;
     display: grid;
     background-color: $color-black;
-    border-radius: 200px;
+    border-radius: $border-radius-big;
     padding: 1rem;
     margin-bottom: -2rem;
     z-index: 1;
@@ -502,9 +520,104 @@ nav {
 
 .instagram {
   display: grid;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
   gap: 3rem;
   padding: 5rem;
-  background-color: $color-primary-dark;
+  background-color: $color-black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__background {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    animation: kenBurns 40s cubic-bezier(0.47, 0.5, 0.72, 0.72);
+  }
+
+  &__title {
+    z-index: 1;
+    text-shadow: 1px 1px 2px $color-primary-light;
+  }
+}
+
+.recommendations {
+  display: grid;
+  padding: 5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: white;
+  overflow: hidden;
+  gap: 1rem;
+
+  &__title {
+    grid-column: 1/5;
+    margin-bottom: 2rem;
+  }
+
+  &__product {
+    position: relative;
+    height: 50vh;
+    border-radius: $border-radius;
+    transition: all 1s;
+    box-shadow: 0 0 0 transparent;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px $color-primary;
+    }
+
+    &__image {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      object-fit: contain;
+      z-index: 0;
+    }
+
+    &__holder {
+      display: grid;
+      height: 100%;
+      align-content: end;
+      padding: 1rem;
+      transition: all 0.5s;
+    }
+
+    &__title {
+      font-family: "josefin sans", sans-serif;
+      color: $color-black;
+      text-align: left;
+      font-size: 1rem;
+    }
+
+    &__subtitle {
+      font-size: 0.8rem;
+    }
+
+    &__title,
+    &__subtitle {
+      backdrop-filter: blur(2px);
+      text-shadow: 1px 1px 10px white;
+    }
+
+    &__btn {
+      z-index: 1;
+      justify-self: stretch;
+      padding: 0.4rem;
+      text-align: center;
+      border-radius: $border-radius;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin: 1rem 0;
+    }
+  }
 }
 
 footer {
@@ -520,6 +633,58 @@ footer {
   }
 }
 
+.about {
+  border-radius: $border-radius;
+
+  &__title-hold {
+    padding: 5rem;
+    display: grid;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+
+    & img {
+      width: 100%;
+      animation: kenBurns 40s cubic-bezier(0.47, 0.5, 0.72, 0.72);
+      position: absolute;
+      filter: brightness(30%);
+      align-self: center;
+    }
+  }
+
+  &__title {
+    z-index: 1;
+  }
+
+  &__paragraph {
+    font-size: 1.5rem;
+    text-align: justify;
+  }
+
+  &__paragraphs {
+    display: grid;
+    gap: 3rem;
+    padding: 5rem;
+  }
+}
+
+.products-cta {
+  display: grid;
+  height: 50vh;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  background-image: url("../imgs/products-cta-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  text-decoration: none;
+}
+
 @keyframes glowing {
   0% {
     background-position: 0 0;
@@ -532,11 +697,28 @@ footer {
   }
 }
 
+@keyframes kenBurns {
+  0% {
+    transform-origin: center;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @media only screen and (max-width: 1199px) {
   *,
   *::after,
   *::before {
     font-size: 16px;
+  }
+
+  h1 {
+    font-size: 3rem;
   }
 
   .testimonials {
@@ -565,6 +747,15 @@ footer {
     padding: 2rem;
     gap: 1rem;
   }
+
+  .about__paragraphs {
+    padding: 4rem;
+  }
+
+  .flickity-prev-next-button {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 @media only screen and (max-width: 599px) {
@@ -582,7 +773,16 @@ footer {
     }
   }
 
+  .about__paragraphs {
+    padding: 3rem;
+  }
+
   .main-carousel__cell {
     padding: 5rem 4rem;
+  }
+
+  .flickity-prev-next-button {
+    width: 3rem;
+    height: 3rem;
   }
 }

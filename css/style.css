@@ -13,9 +13,12 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+h1 {
+  font-size: 4rem;
+}
+
 h2 {
   font-size: 3.5rem;
-  padding: 2rem;
 }
 
 h3 {
@@ -32,6 +35,9 @@ h3,
 .decorative-text {
   font-family: "Great Vibes", cursive;
   color: #c405a4;
+}
+
+.center {
   text-align: center;
 }
 
@@ -49,7 +55,7 @@ nav {
   position: fixed;
   top: 50px;
   left: 50px;
-  z-index: 1;
+  z-index: 5;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -59,7 +65,7 @@ nav {
   transition: color 0.3s ease;
 }
 #menu a:hover {
-  color: #20001a;
+  color: #ff94ed;
 }
 #menu input {
   display: block;
@@ -80,7 +86,7 @@ nav {
   margin-bottom: 5px;
   position: relative;
   background: #c405a4;
-  border-radius: 3px;
+  border-radius: 4px;
   z-index: 1;
   transform-origin: 4px 0px;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
@@ -114,7 +120,7 @@ nav {
   padding: 50px;
   padding-top: 125px;
   text-align: center;
-  background: #000000;
+  background: #111;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -124,12 +130,6 @@ nav {
 #menu__list li {
   padding: 10px 0;
   font-size: 22px;
-}
-
-.container {
-  display: grid;
-  grid-template-rows: min-content;
-  text-align: center;
 }
 
 .btn {
@@ -145,7 +145,7 @@ nav {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: 10px;
+  border-radius: 4px;
   display: grid;
   align-items: center;
   justify-items: center;
@@ -164,10 +164,10 @@ nav {
   animation: glowing 20s linear infinite;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 .btn:active {
-  color: #000;
+  color: #111;
 }
 .btn:active:after {
   background-color: transparent;
@@ -184,7 +184,21 @@ nav {
   background: #111;
   left: 0;
   top: 0;
-  border-radius: 10px;
+  border-radius: 4px;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #111;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 0.7rem;
+  cursor: pointer;
 }
 
 .main-carousel {
@@ -205,6 +219,7 @@ nav {
   align-content: end;
 }
 .main-carousel__title {
+  padding: 0;
   font-size: 5rem;
   font-weight: bold;
   text-align: left;
@@ -217,13 +232,13 @@ nav {
 
 /* position dots in gallery */
 .flickity-page-dots {
-  bottom: 5px;
+  bottom: 0.5rem;
 }
 
 /* white circles */
 .flickity-page-dots .dot {
-  width: 20px;
-  height: 20px;
+  width: 1rem;
+  height: 1rem;
   opacity: 0.7;
   background: transparent;
   border: 2px solid #c405a4;
@@ -244,8 +259,8 @@ nav {
 }
 
 .flickity-prev-next-button {
-  width: 5em;
-  height: 5em;
+  width: 5rem;
+  height: 5rem;
 }
 
 .flickity-button-icon {
@@ -357,8 +372,8 @@ nav {
   display: grid;
   justify-items: stretch;
   padding-top: 6rem;
-  padding-bottom: 2rem;
   text-align: center;
+  padding-bottom: 2rem;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 5rem;
   gap: 2rem;
@@ -376,7 +391,7 @@ nav {
 .shipping__icon-container {
   background-color: #ffffff;
   display: grid;
-  background-color: #000000;
+  background-color: #111;
   border-radius: 200px;
   padding: 1rem;
   margin-bottom: -2rem;
@@ -388,7 +403,7 @@ nav {
   background-color: #c405a4;
 }
 .shipping__text {
-  color: #000000;
+  color: #111;
   background-color: #ffffff;
   height: 10rem;
   display: grid;
@@ -445,21 +460,151 @@ nav {
 
 .instagram {
   display: grid;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
   gap: 3rem;
   padding: 5rem;
-  background-color: #20001a;
+  background-color: #111;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.instagram__background {
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  animation: kenBurns 40s cubic-bezier(0.47, 0.5, 0.72, 0.72);
+}
+.instagram__title {
+  z-index: 1;
+  text-shadow: 1px 1px 2px #ff94ed;
+}
+
+.recommendations {
+  display: grid;
+  padding: 5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: white;
+  overflow: hidden;
+  gap: 1rem;
+}
+.recommendations__title {
+  grid-column: 1/5;
+  margin-bottom: 2rem;
+}
+.recommendations__product {
+  position: relative;
+  height: 50vh;
+  border-radius: 4px;
+  transition: all 1s;
+  box-shadow: 0 0 0 transparent;
+}
+.recommendations__product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #c405a4;
+}
+.recommendations__product__image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: contain;
+  z-index: 0;
+}
+.recommendations__product__holder {
+  display: grid;
+  height: 100%;
+  align-content: end;
+  padding: 1rem;
+  transition: all 0.5s;
+}
+.recommendations__product__title {
+  font-family: "josefin sans", sans-serif;
+  color: #111;
+  text-align: left;
+  font-size: 1rem;
+}
+.recommendations__product__subtitle {
+  font-size: 0.8rem;
+}
+.recommendations__product__title, .recommendations__product__subtitle {
+  backdrop-filter: blur(2px);
+  text-shadow: 1px 1px 10px white;
+}
+.recommendations__product__btn {
+  z-index: 1;
+  justify-self: stretch;
+  padding: 0.4rem;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin: 1rem 0;
 }
 
 footer {
   display: grid;
   justify-content: center;
   text-align: center;
-  background-color: #000000;
+  background-color: #111;
   color: #ffffff;
   padding: 5rem;
 }
 footer span {
   color: #c405a4;
+}
+
+.about {
+  border-radius: 4px;
+}
+.about__title-hold {
+  padding: 5rem;
+  display: grid;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.about__title-hold img {
+  width: 100%;
+  animation: kenBurns 40s cubic-bezier(0.47, 0.5, 0.72, 0.72);
+  position: absolute;
+  filter: brightness(30%);
+  align-self: center;
+}
+.about__title {
+  z-index: 1;
+}
+.about__paragraph {
+  font-size: 1.5rem;
+  text-align: justify;
+}
+.about__paragraphs {
+  display: grid;
+  gap: 3rem;
+  padding: 5rem;
+}
+
+.products-cta {
+  display: grid;
+  height: 50vh;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  background-image: url("../imgs/products-cta-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  text-decoration: none;
 }
 
 @keyframes glowing {
@@ -473,11 +618,26 @@ footer span {
     background-position: 0 0;
   }
 }
+@keyframes kenBurns {
+  0% {
+    transform-origin: center;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @media only screen and (max-width: 1199px) {
   *,
   *::after,
   *::before {
     font-size: 16px;
+  }
+  h1 {
+    font-size: 3rem;
   }
   .testimonials__cell {
     width: 50vw;
@@ -501,6 +661,13 @@ footer span {
     padding: 2rem;
     gap: 1rem;
   }
+  .about__paragraphs {
+    padding: 4rem;
+  }
+  .flickity-prev-next-button {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 @media only screen and (max-width: 599px) {
   *,
@@ -514,7 +681,14 @@ footer span {
   .shipping__title {
     grid-column: 1;
   }
+  .about__paragraphs {
+    padding: 3rem;
+  }
   .main-carousel__cell {
     padding: 5rem 4rem;
+  }
+  .flickity-prev-next-button {
+    width: 3rem;
+    height: 3rem;
   }
 }/*# sourceMappingURL=style.css.map */

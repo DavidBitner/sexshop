@@ -1,6 +1,7 @@
 //Carousels
 var carouselMain = document.querySelector(".main-carousel");
 var carouselTestimonials = document.querySelector(`.testimonials__carousel`);
+var productsCta = document.querySelector(`.products-cta`);
 
 var flkty1 = new Flickity(carouselMain, {
   wrapAround: true,
