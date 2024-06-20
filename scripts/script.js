@@ -1,3 +1,5 @@
+import { products } from "./products.js";
+
 //Carousels
 var carouselMain = document.querySelector(".main-carousel");
 var carouselTestimonials = document.querySelector(`.testimonials__carousel`);
@@ -45,3 +47,5 @@ window.addEventListener("click", function (e) {
     document.querySelector(`#menu__checkbox`).checked = false;
   }
 });
+
+console.log(products[1].Nome);
